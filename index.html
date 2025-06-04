@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Modern Attractive Website</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --color-primary: #6a11cb;
+        --color-secondary: #2575fc;
+        --color-light: #f0f0f7;
+        --color-dark: #1a202c;
+        --font-family: "Poppins", sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: var(--font-family);
+        background: var(--color-light);
+        color: var(--color-dark);
+        line-height: 1.6;
+        scroll-behavior: smooth;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      header {
+        position: fixed;
+        width: 100%;
+        background: white;
+        box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+        z-index: 1000;
+      }
+      nav {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo {
+        font-weight: 700;
+        font-size: 1.5rem;
+        background: linear-gradient(
+          45deg,
+          var(--color-primary),
+          var(--color-secondary)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        cursor: default;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1.8rem;
+      }
+      nav ul li {
+        font-weight: 600;
+        font-size: 1rem;
+        color: var(--color-dark);
+        cursor: pointer;
+        position: relative;
+        padding-bottom: 4px;
+        transition: color 0.3s ease;
+      }
+      nav ul li::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background: var(--color-primary);
+        transition: width 0.3s ease;
+        border-radius: 2px;
+      }
+      nav ul li:hover,
+      nav ul li:focus {
+        color: var(--color-primary);
+      }
+      nav ul li:hover::after,
+      nav ul li:focus::after {
+        width: 100%;
+      }
+      main {
+        margin-top: 80px;
+      }
+      .hero {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 90vh;
+        max-width: 1100px;
+        margin: auto;
+        padding: 0 2rem;
+        text-align: center;
+        background: linear-gradient(
+          135deg,
+          var(--color-primary),
+          var(--color-secondary)
+        );
+        color: white;
+        border-radius: 20px;
+        box-shadow: 0 15px 40px rgb(101 64 233 / 0.4);
+        position: relative;
+        overflow: hidden;
+      }
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        line-height: 1.1;
+        text-shadow: 0 3px 6px rgb(0 0 0 / 0.3);
+      }
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 2rem;
+        font-weight: 500;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        text-shadow: 0 2px 6px rgb(0 0 0 / 0.25);
+      }
+      .btn-primary {
+        display: inline-block;
+        background: white;
+        color: var(--color-primary);
+        font-weight: 700;
+        padding: 0.9rem 2.4rem;
+        font-size: 1.15rem;
+        border-radius: 50px;
+        box-shadow: 0 8px 15px rgb(255 255 255 / 0.5);
+        transition: background-color 0.3s ease, color 0.3s ease,
+          box-shadow 0.3s ease;
+        cursor: pointer;
+        user-select: none;
+        border: none;
+      }
+      .btn-primary:hover,
+      .btn-primary:focus {
+        background: #d4cbff;
+        color: var(--color-secondary);
+        box-shadow: 0 12px 24px rgb(101 64 233 / 0.7);
+        outline: none;
+      }
+      section.info {
+        max-width: 1100px;
+        margin: 4rem auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 2rem;
+      }
+      .info-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 20px;
+        box-shadow: 0 8px 20px rgb(101 64 233 / 0.1);
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: default;
+      }
+      .info-card:hover,
+      .info-card:focus-within {
+        box-shadow: 0 15px 35px rgb(101 64 233 / 0.25);
+        transform: translateY(-8px);
+        outline: none;
+      }
+      .info-icon {
+        font-size: 3rem;
+        color: var(--color-primary);
+        margin-bottom: 1.2rem;
+      }
+      .info-card h3 {
+        font-weight: 700;
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+        color: var(--color-dark);
+      }
+      .info-card p {
+        font-weight: 400;
+        font-size: 1rem;
+        color: #4a5568;
+        line-height: 1.4;
+      }
+      footer {
+        background: var(--color-dark);
+        color: #a0aec0;
+        text-align: center;
+        padding: 1.5rem 2rem;
+        font-size: 0.9rem;
+        margin-top: 5rem;
+      }
+      footer a {
+        color: #a0aec0;
+        margin: 0 0.8rem;
+        font-size: 1.4rem;
+        vertical-align: middle;
+        transition: color 0.3s ease;
+      }
+      footer a:hover,
+      footer a:focus {
+        color: var(--color-secondary);
+        outline: none;
+      }
+
+      /* New Get Started Section */
+      #get-started-section {
+        max-width: 900px;
+        margin: 3rem auto 6rem auto;
+        padding: 3rem 2rem;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgb(101 64 233 / 0.25);
+        display: none;
+        flex-direction: column;
+        animation: fadeInUp 0.8s ease forwards;
+      }
+      #get-started-section.show {
+        display: flex;
+      }
+      #get-started-section h2 {
+        color: var(--color-primary);
+        font-weight: 700;
+        font-size: 2.4rem;
+        text-align: center;
+        margin-bottom: 1.5rem;
+        user-select: none;
+      }
+      #get-started-section p {
+        font-size: 1.15rem;
+        color: #374151;
+        text-align: center;
+        margin-bottom: 2.5rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+        user-select: text;
+      }
+      .steps {
+        display: flex;
+        justify-content: space-around;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+      .step {
+        flex: 1 1 250px;
+        background: var(--color-light);
+        padding: 1.5rem 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgb(5 131 117 / 0.15);
+        text-align: center;
+        user-select: none;
+        transition: transform 0.3s ease;
+      }
+      .step:hover,
+      .step:focus-within {
+        transform: translateY(-8px);
+        outline: none;
+      }
+      .step-icon {
+        font-size: 3rem;
+        color: var(--color-primary);
+        margin-bottom: 1rem;
+      }
+      .step-title {
+        font-weight: 600;
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+        color: var(--color-dark);
+      }
+      .step-desc {
+        font-size: 1rem;
+        color: #4b5563;
+        line-height: 1.5;
+      }
+      .btn-close {
+        align-self: center;
+        margin-top: 2rem;
+        background: var(--color-primary);
+        color: white;
+        border: none;
+        padding: 0.75rem 2.5rem;
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        box-shadow: 0 8px 15px rgb(101 64 233 / 0.7);
+        transition: background-color 0.3s ease;
+      }
+      .btn-close:hover,
+      .btn-close:focus {
+        background: var(--color-secondary);
+        outline: none;
+      }
+
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+        .hero p {
+          font-size: 1rem;
+        }
+        nav ul {
+          gap: 1rem;
+        }
+        section.info {
+          grid-template-columns: 1fr;
+        }
+        #get-started-section {
+          padding: 2rem 1rem;
+        }
+        .steps {
+          flex-direction: column;
+          gap: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav role="navigation" aria-label="Main Navigation">
+        <div class="logo" aria-label="Website Logo">Ical Math</div>
+        <ul>
+          <li tabindex="0"><a href="buatakun.html">Buat Akun</a></li>
+          <li tabindex="0"><a href="index.html">About</a></li>
+          <li tabindex="0"><a href="index.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-label="Website Introduction">
+        <h1>RRQ zilong {Faisal}</h1>
+        <p>JANGAN LAMA LAMA LANGSUNG AE KITA MULAI DER.</p>
+        <a href="mtk.html"
+          ><button
+            class="btn-primary"
+            aria-label="Get Started Button"
+            id="getStartedBtn"
+          >
+            MULAI SEKARANG
+          </button></a
+        >
+      </section>
+
+      <section
+        id="get-started-section"
+        aria-label="Getting Started Guide"
+        tabindex="0"
+      >
+        <h2>How to Get Started Quickly</h2>
+        <p>
+          Follow these simple steps to begin your journey and maximize your
+          success using our platform.
+        </p>
+        <div class="steps" role="list">
+          <div class="step" role="listitem" tabindex="0">
+            <div class="step-icon" aria-hidden="true">📝</div>
+            <div class="step-title">Sign Up</div>
+            <div class="step-desc">
+              Create your free account with just a few clicks. Join our
+              community to start building.
+            </div>
+          </div>
+          <div class="step" role="listitem" tabindex="0">
+            <div class="step-icon" aria-hidden="true">📚</div>
+            <div class="step-title">Learn</div>
+            <div class="step-desc">
+              Access tutorials, guides, and resources designed to help you
+              master the tools.
+            </div>
+          </div>
+          <div class="step" role="listitem" tabindex="0">
+            <div class="step-icon" aria-hidden="true">🚀</div>
+            <div class="step-title">Build</div>
+            <div class="step-desc">
+              Start your projects with confidence and watch your ideas come to
+              life.
+            </div>
+          </div>
+        </div>
+        <button
+          class="btn-close"
+          aria-label="Close Getting Started Section"
+          id="closeGetStarted"
+        >
+          Close
+        </button>
+      </section>
+    </main>
+  </body>
+</html>
